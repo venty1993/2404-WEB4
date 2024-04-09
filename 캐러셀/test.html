@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="makeSlider.css">
+
+    <style>
+        .my-slide {
+            width: 500px;
+            height: 300px;
+        }
+
+        .my-content {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="my-slide">
+        <div class="my-content">1번컨텐츠</div>
+        <div class="my-content">하하</div>
+        <div class="my-content">호호</div>
+        <div class="my-content">히히</div>
+    </div>
+    <script src="makeSlider.js"></script>
+    <script>
+        makeSlider(document.querySelector('.my-slide'),1,0);
+    </script>
+</body>
+</html>

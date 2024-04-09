@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        section {
+            padding: 0 32px;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 700px;
+            margin-bottom: 56px;
+        }
+
+        .slide-container {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .contents-wrapper {
+            height: 100%;
+            width: fit-content;
+            display: flex;
+            transform: translateX(0);
+            transition: 1s;
+        }
+
+        .content {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+
+        .slider-interface {
+            width: 100%;
+            height: 100%;
+            position:absolute;
+            top: 0;
+        }
+
+        .slider-interface > button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #aaa;
+            border: none;
+            cursor: pointer;
+        }
+
+        .prev {
+            position: absolute;
+            top: 50%;
+            left: -40px;
+            transform: translateY(-50%);
+        }
+
+        .next {
+            position: absolute;
+            top: 50%;
+            right: -40px;
+            transform: translateY(-50%);
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            width: 200px;
+
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -40px;
+        }
+
+        .slide-button {
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 1px solid #ccc;
+        }
+
+        .slide-button.active {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="section-container">
+            <div class="slider">
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+            </div>
+
+            <div class="slider">
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+            </div>
+            <div class="slider">
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+            </div>
+            <div class="slider">
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+            </div>
+            <div class="slider">
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+            </div>
+            <div class="slider">
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+                <div class="content"></div>
+            </div>
+        </div>
+    </section>
+    <script src="makeSlider.js"></script>
+    <script>
+        const sliders = document.getElementsByClassName('slider');
+
+        for(let i = 0 ; i < sliders.length; i ++) {
+            makeSlider(sliders[i])
+        }
+
+        
+
+    </script>
+</body>
+</html>

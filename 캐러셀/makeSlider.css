@@ -1,0 +1,77 @@
+.slide-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.contents-wrapper {
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    transform: translateX(0);
+    transition: 1s;
+}
+
+.auto-slide-content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+
+.slider-interface {
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    top: 0;
+}
+
+.slider-interface > button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #aaa;
+    border: none;
+    cursor: pointer;
+}
+
+.prev {
+    position: absolute;
+    top: 50%;
+    left: -40px;
+    transform: translateY(-50%);
+}
+
+.next {
+    position: absolute;
+    top: 50%;
+    right: -40px;
+    transform: translateY(-50%);
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -40px;
+}
+
+.slide-button {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+
+.slide-button.active {
+    background-color: red;
+}

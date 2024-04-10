@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 5000px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        window.addEventListener('mousewheel', (event)=>{
+            console.log(event.wheelDelta > 0 ? 'up' : 'down');
+
+        })
+
+        // 마우스 휠 이벤트는 마우스 이벤트인만큼, 휠 된 시점의 마우스 위치와 휠 방향 정보들이 포함되어 있다.
+        // 스크롤의 방향만 알수 있기 때문에 스크롤 인터렉션의 이벤트 리스너로 사용하기에는 제약이 많다.
+
+    </script>
+</body>
+</html>

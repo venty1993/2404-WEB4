@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 5000px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+
+        let 이전스크롤 = window.scrollY;
+        window.addEventListener('scroll', (e)=>{
+            // console.log('스크롤됨!')
+            // console.log(e);
+            console.log(window.scrollY>이전스크롤?'down':'up');
+            이전스크롤 = window.scrollY
+      
+        })
+
+        //휠을 올렸을때 up, 내렸을때 down이 콘솔에 출력되도록 작성.. 해볼까요?
+        // 마우스휠 이벤트 x, 스크롤만 이용해 만들수 있습니다
+    </script>
+</body>
+</html>

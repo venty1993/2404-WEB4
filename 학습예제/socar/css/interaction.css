@@ -1,0 +1,79 @@
+/* 헤더가 숨었을때 */
+header.hide {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+/* 스크롤했을때 헤더 */
+
+header.scrolled {
+    background-color: #FFFFFFDB;
+    border-bottom: 1px solid #AAAAAA80;
+}
+
+header.scrolled .st0 {
+    fill: var(--main-color);
+}
+
+header.scrolled .hamberger::after,
+header.scrolled .hamberger::before {
+    background-color: var(--main-color);
+}
+
+/* 메인컨텐츠 숨겨놓기(오른쪽으로 살짝 이동시키고 투명하게) */
+
+.scroll-inter {
+    opacity: 0;
+    transition: 1s;
+    transform: translateX(-50px);
+}
+
+.scroll-inter.active {
+    opacity: 1;
+    transform: none;
+}
+
+/* '함께하고 있습니다' 섹션 오른쪽에 파란 평행사변형 이동시켜놓기  */
+
+#start-together > .incline {
+    transform: translateX(40%) skewX(-30deg);
+    left: 80%;
+    transition: 1s;
+}
+
+#start-together > .incline.active {
+    transform: skewX(-30deg);
+}
+
+
+
+/* 앱다운로드 버튼 */
+
+#app-download > .incline {
+    transition: 1s;
+    transform: skewX(-30deg) translateX(120%);
+    transition-delay: 0.3s;
+}
+
+#app-download > figure {
+    transition: 1s;
+    opacity: 0;
+    transition-delay: 0.8s;
+}
+
+#app-download > p {
+    transition: 1s;
+    opacity: 0;
+}
+
+#app-download.active > .incline {
+    transform: skewX(-30deg) translateX(20px);
+}
+
+#app-download.active > figure {
+    opacity: 1;
+}
+
+#app-download.active > p {
+    opacity: 1;
+}

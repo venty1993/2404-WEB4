@@ -244,6 +244,28 @@
         </figure>
         <p>쏘카 앱 다운로드</p>
     </section>
+    <script>
+        
+        const header = document.querySelector('header');
 
+        let 이전스크롤 = window.scrollY
+        window.addEventListener('scroll',()=>{
+            if(window.scrollY > 이전스크롤) {
+                // 내린거
+                header.classList.add('hide')
+            }else {
+                // 올린거
+                header.classList.remove('hide')
+            }
+
+            if(window.scrollY < 100){
+                header.classList.add('scrolled')
+            }else{
+                header.classList.remove('scrolled')
+            }
+            이전스크롤 = window.scrollY
+        })
+
+    </script>
 </body>
 </html>

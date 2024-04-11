@@ -55,7 +55,7 @@
     </section>
     <main>
         <section id="advantages-container">
-            <div class="advantage">
+            <div class="advantage scroll-inter">
                 <h2>24시간 언제나</h2>
                 <p>    
                     한밤중이나 주말에도 스마트폰으로
@@ -67,7 +67,7 @@
                 <figure>
                     <img src="image/usp_a.jpg" alt="차 옆에 서있는 남자가 싱글벙글 웃는 사진">
                 </figure>
-            </div><div class="advantage">
+            </div><div class="advantage scroll-inter">
                 <h2>원하는 곳에서</h2>
                 <p>    
                     내 주변 3분 거리 쏘카존에서
@@ -79,7 +79,7 @@
                 <figure>
                     <img src="image/usp_b.jpg" alt="차 옆에 서있는 남자가 싱글벙글 웃는 사진">
                 </figure>
-            </div><div class="advantage">
+            </div><div class="advantage scroll-inter">
                 <h2>필요한 시간만큼</h2>
                 <p>    
                     간단한 장보기부터 주말여행까지
@@ -89,7 +89,7 @@
                 <figure>
                     <img src="image/usp_c.jpg" alt="차 옆에 서있는 남자가 싱글벙글 웃는 사진">
                 </figure>
-            </div><div class="advantage">
+            </div><div class="advantage scroll-inter">
                 <h2>다양한 차종을</h2>
                 <p>    
                     연인과의 드라이브부터 가족 캠핑까지
@@ -121,7 +121,7 @@
     </main>
     <footer>
         <div class="footer-container">
-            <div class="sns-container">
+            <div class="sns-container scroll-inter">
                 <a href="#">
                     <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33">
                         <g id="그룹_553" data-name="그룹 553" transform="translate(5481 -4830)">
@@ -179,7 +179,7 @@
                       </svg>  
                 </a>
             </div>
-            <nav>
+            <nav class="scroll-inter">
                 <a href="#">회사소개</a>
                 <a href="#">인재채용</a>
                 <a href="#">나눔카</a>
@@ -190,7 +190,7 @@
                 <a href="#">고객센터</a>
                 <a href="#">제휴 문의</a>
             </nav>
-            <div class="information">
+            <div class="information scroll-inter">
                 <div>
                     <dl>
                         <dt>주소</dt>
@@ -265,6 +265,19 @@
             }
             이전스크롤 = window.scrollY
         })
+
+
+        const scrollInter = document.getElementsByClassName('scroll-inter');
+
+        window.addEventListener('scroll',()=>{
+            for(let i = 0 ; i < scrollInter.length ; i++){
+                if(scrollInter[i].getBoundingClientRect().top < window.innerHeight){   
+                    scrollInter[i].classList.add('active');
+                }
+            }
+        })
+
+
 
     </script>
 </body>

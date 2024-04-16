@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container.active > div {
+            transform: translateX(1000px);
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+            background-color: pink;
+            transition: 1s;
+            border-radius: 50%;
+
+        }
+
+        .box:last-child {
+            transition-timing-function: linear;
+        }
+    </style>
+</head>
+<body>
+    <p class="target"></p>
+
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        
+    </div>
+
+
+    <script>
+
+        const 타겟 = document.querySelector('.target');
+
+        makeCountup(타겟,1234567)
+
+        
+    </script>
+</body>
+</html>

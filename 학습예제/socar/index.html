@@ -244,6 +244,7 @@
         </figure>
         <p>쏘카 앱 다운로드</p>
     </section>
+    <script src="makeCountup.js"></script>
     <script>
         
         const header = document.querySelector('header');
@@ -269,6 +270,9 @@
 
         const scrollInter = document.getElementsByClassName('scroll-inter');
         const inclien = document.querySelector('#start-together > .incline');
+        const countUpTarget = document.querySelector('.point-blue.count-up')
+
+        let playAble = true
 
         window.addEventListener('scroll',()=>{
             for(let i = 0 ; i < scrollInter.length ; i++){
@@ -281,8 +285,19 @@
                 inclien.classList.add('active');
             }
             
-
+            if(playAble && countUpTarget.getBoundingClientRect().top < window.innerHeight){
+                makeCountup(countUpTarget, 13513512)
+                playAble = false;
+                // countUpTarget.classList.add('played')
+            }
         })
+
+        
+        const appDownload = document.getElementById('app-download')
+        
+        setTimeout(() => {
+            appDownload.classList.add('active')
+        }, 300);
 
         console.log(inclien)
 

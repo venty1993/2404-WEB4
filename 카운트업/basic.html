@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p class="target"></p>
+
+    <!-- 0부터 1씩 증가하는 반복문을 이용한다 -->
+    <script>
+        const target = document.querySelector('.target');
+
+        for(let i = 0 ; i <= 100; i ++) {
+            setTimeout(() => {
+                target.innerText = i;
+            }, 20 * i);
+        }
+
+    </script>
+</body>
+</html>

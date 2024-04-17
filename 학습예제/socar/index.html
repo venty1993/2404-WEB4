@@ -276,12 +276,14 @@
 
         window.addEventListener('scroll',()=>{
             for(let i = 0 ; i < scrollInter.length ; i++){
-                if(scrollInter[i].getBoundingClientRect().top < window.innerHeight){   
+                if(scrollInter[i].getBoundingClientRect().top < window.innerHeight/3*2){   
                     scrollInter[i].classList.add('active');
                 }
             }
 
-            if(inclien.getBoundingClientRect().top < window.innerHeight){   
+            console.log(inclien.getBoundingClientRect().top)
+
+            if(inclien.getBoundingClientRect().top < window.innerHeight/3*2){   
                 inclien.classList.add('active');
             }
             
@@ -292,12 +294,13 @@
             }
         })
 
-        
-        const appDownload = document.getElementById('app-download')
-        
         setTimeout(() => {
             appDownload.classList.add('active')
         }, 300);
+        
+        const appDownload = document.getElementById('app-download')
+        
+       
 
         console.log(inclien)
 

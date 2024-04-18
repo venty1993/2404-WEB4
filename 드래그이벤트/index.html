@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .test {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        .test {
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+    <div class="test"></div>
+    <!-- 
+        1. 
+        mouse 관련 이벤트에는 이벤트가 실행된 시점의 마우스 좌표가 들어있다.
+        mousedown 이벤트는 마우스 왼쪽버튼이 눌릴때 작동,
+        mouseup 이벤트는 마우스 왼쪽버튼이 떼질때 작동
+        
+        두 이벤트를 이용해서 내가 마우스다운 한 곳으로부터 마우스 업한곳까지 x,y축으로 얼마나 이동했는지
+        그 값을 콘솔에 출력해봅시다. 
+     -->
+
+     <!-- 
+        2.
+        mousedown 이벤트가 발생했을때 해당위치로 test 박스가 이동하게 만들어봅시다!
+
+        test.style.top = `10px`;
+      -->
+      <!-- 
+        3.
+        mousedown시 이벤트가 발생한 위치에 박스를 옮기고,
+        mouseup시 박스의 크기를
+        이전 mousedown 이벤트부터 현재 mouseup이벤트 좌표에 채워주도록 만들어봅시다
+        
+        예를들어 200,100 좌표에서 400,250 좌표까지 드래그를 실행했다면
+        박스의 좌표는 200,100.  박스의 크기는 200,150입니다. 
+
+        드래그 과정은 아직 구현하지않습니다.
+
+
+       -->
+
+       <!-- 
+
+        4. 자유로운 숙제
+
+        3번까지 구현했을때, x와 y가 양수방향으로 움직일때는 문제가 없으나, 음수방향 으로 움직일때는 문제가 생긴다.
+        이 문제를 해결해 봅시다!
+
+        -->
+    
+
+
+     <script>
+
+        let posX, posY;
+        let clicked = false;
+
+        const test = document.querySelector('.test');
+
+        window.addEventListener('mousedown', (e) => {
+            clicked=true;
+
+            posX = e.clientX;
+            posY = e.clientY;
+
+            test.style.top = `${e.clientY}px`;
+            test.style.left = `${e.clientX}px`;
+        })
+
+        window.addEventListener('mousemove',(e)=>{
+            if(clicked){
+                console.log(e)
+                test.style.width = `${e.clientX-posX}px`
+                test.style.height = `${e.clientY-posY}px`
+
+            }
+        })
+        
+        window.addEventListener('mouseup', (e) => {
+            clicked=false;
+            console.log(`X : ${e.clientX-posX}, Y : ${e.clientY-posY}`)
+            
+
+        })
+
+
+     </script>
+</body>
+</html>

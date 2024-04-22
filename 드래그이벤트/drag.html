@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .test {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="test"></div>
+    <div class="test"></div>
+    <div class="test"></div>
+    <div class="test"></div>
+    <div class="test"></div>
+    <div class="test"></div>
+
+    <script>
+        // test를 드래그 가능한 요소로 만들어 봅시다
+        // 클릭한 시점부터 이동하기 시작해야 함
+        // 마우스를 움직일때 test가 마우스를 따라와야 하며, (일단 클릭한 위치는 고려하지 않도록 하겠음)
+        // 마우스를 떼는곳에 컨텐츠가 고정되되도록 만들어봅시다.
+
+        const test = document.getElementsByClassName('test');
+
+        for(let i = 0 ; i < test.length ; i ++) {
+            makeDrag(test[i]);
+        }
+
+        function makeDrag(test){
+            let isClicked = false;
+            let offX, offY;
+
+            test.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                isClicked = true;
+                offX = e.offsetX;
+                offY = e. offsetY
+                console.log(e);
+            })
+            
+            document.addEventListener('mousemove',(e)=>{
+                if(isClicked){
+                    test.style.top = `${e.clientY-offY}px`
+                    test.style.left = `${e.clientX-offX}px`
+                }
+            })
+
+            document.addEventListener('mouseup',()=>{
+                isClicked = false
+            })
+        }
+        
+        </script>
+        </body>
+        </html>

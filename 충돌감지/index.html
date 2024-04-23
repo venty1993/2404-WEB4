@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .obj{
+            position: absolute;
+            bottom: 50%;
+            transition: 2s;
+        }
+
+        .me {
+            width: 50px;
+            height: 150px;
+            background-color: green;
+            left: 25%;
+        }
+
+        .enemy {
+            position: absolute;
+            width: 100px;
+            height: 200px;
+            background-color: red;
+            left: 75%;
+        }
+
+        .move {
+            left: 50%;;
+        }
+    </style>
+</head>
+<body>
+    <div class="me obj"></div>
+    <div class="enemy obj"></div>
+    <script>
+        const me = document.querySelector('.me');
+        const enemy = document.querySelector('.enemy');
+
+        window.addEventListener('keydown', (e)=>{
+            console.log(e.key)
+            if(e.key === ' ') {
+                me.classList.toggle('move')
+                enemy.classList.toggle('move')
+            }
+        })
+
+
+    </script>
+</body>
+</html>

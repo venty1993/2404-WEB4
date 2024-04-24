@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .circle {
+            border-radius: 50%;
+            position: absolute;
+            aspect-ratio: 1;
+        }
+
+        .me {
+            background-color: green;
+            width: 100px;
+            top: 25%;
+            left: 25%;
+        }
+
+        .enemy {
+            background-color: red;
+            width: 200px;
+            top: 50%;
+            left: 50%;
+            animation: bounce 1s infinite alternate;
+        }
+
+
+        
+        @keyframes bounce {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(2);
+            }
+            
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="enemy circle"></div>
+    <div class="me circle"></div>
+
+    <script>
+        // 두 원의 중심 사이의 거리를 구하기 위해선 피타고라스 정리를 이용해야한다.
+        // x² + y² = z²
+        // x*x + y*y = z*z
+        // √x*x + y*y = √z*z
+        // √x*x + y*y = z
+        // Math.sqrt() : 제곱근을 구하는 함수
+        // Math.sqrt(25) -> 5
+
+        // Math.sqrt(distX*distX + distY*distY)
+
+        // 위 식과 index.html 내의 작성을 활용해 원의 충돌을 감지하는 스크립트를 작성해봅시다!
+
+        const me = document.querySelector('.me');
+        const enemy = document.querySelector('.enemy');
+
+        makeDrag(me);
+
+        
+
+        
+
+        
+
+        setInterval(() => {
+            충돌감지();
+        }, 1000/60);
+
+
+        function 충돌감지() {
+            const meRect = me.getBoundingClientRect();
+            const enemyRect = enemy.getBoundingClientRect();
+
+            const crashDist = (meRect.width + enemyRect.width)/2
+            const distX = Math.abs((enemyRect.left + enemyRect.width/2)- (meRect.left + meRect.width/2));
+            const distY = Math.abs((enemyRect.top + enemyRect.width/2) - (meRect.top + meRect.width/2))
+            const dist = Math.sqrt(distX*distX + distY*distY)
+
+            if(dist < crashDist) {
+                alert('게임오버!')
+            }
+        }
+
+        function makeDrag(test){
+            let isClicked = false;
+            let offX, offY;
+
+            test.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                isClicked = true;
+                offX = e.offsetX;
+                offY = e.offsetY;
+            })
+            
+            document.addEventListener('mousemove',(e)=>{
+                if(isClicked){
+                    test.style.top = `${e.clientY-offY}px`
+                    test.style.left = `${e.clientX-offX}px`
+                }
+            })
+
+            document.addEventListener('mouseup',()=>{
+                isClicked = false
+            })
+        }
+    </script>
+</body>
+</html>

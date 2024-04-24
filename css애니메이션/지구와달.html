@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .orb {
+            border-radius: 50%;
+            position: absolute;
+            aspect-ratio: 1;
+            transform: translate(-50%,-50%);
+        }
+
+        .earth {
+            width: 200px;
+            background-color: blue;
+            left: 50%;
+            top: 50%;
+        }
+
+        .moon {
+            width: 50px;
+            background-color: gray;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,calc(-50% + -200px));
+            transform-origin: 50% calc(50% + 200px);
+
+            animation: revolution 5s linear infinite;
+        }
+
+
+        @keyframes revolution {
+            0% {
+                transform: translate(-50%,calc(-50% + -200px)) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%,calc(-50% + -200px)) rotate(360deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="earth orb"></div>
+    <div class="moon orb"></div>
+</body>
+</html>

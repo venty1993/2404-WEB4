@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        :root {
+            --play-rate : 1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #212121;
+        }
+
+        .solar {
+            width: 0;
+            height: 0;
+            position: absolute;
+            transform: translate(-50%,-50%);
+            top: 50%;
+            left: 50%;
+        }
+
+        .orb {
+            aspect-ratio: 1;
+            position: absolute;
+            border-radius: 50%;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        .revolution {
+            position: absolute;
+            border-radius: 50%;
+            animation: revolution infinite linear;
+            aspect-ratio: 1;
+            border: 1px solid gray;
+            top: 0;
+            left: 50%;
+            transform-origin: 0% 0%;
+        }
+
+        .moon {
+            animation-duration: calc(27s / var(--play-rate));
+            width: 100px;
+        }
+
+        .moon > .orb {
+            width: 10px;
+            background-color: aquamarine;
+            
+        }
+
+        .earth {
+            width: 500px;
+            animation-duration: calc(365s/ var(--play-rate));
+        }
+
+        .earth > .orb {
+            width: 25px;
+            background-color: blue;
+        }
+        
+        .solar > .orb{
+            width: 50px;
+            background-color: red;
+        }
+
+        .mars {
+            width: 700px;
+            animation-duration: calc(687s / var(--play-rate));
+        }
+
+        .mars>.orb {
+            width: 20px;
+            background-color: yellow;
+        }
+
+        .vinus {
+            width: 300px;
+            animation-duration: calc(288s / var(--play-rate));
+        }
+
+        .vinus>.orb{
+            width: 17px;
+            background-color: pink;
+        }
+
+        .pobos {
+            width: 25px;
+            animation-duration: calc((1s/24*7.6)/var(--play-rate));
+        }
+
+        .pobos>.orb{
+            width: 5px;
+            background-color: azure;
+        }
+
+
+        @keyframes revolution {
+            0% {
+                transform: rotate(0deg) translate(-50%,-50%);
+            }
+            100% {
+                transform: rotate(360deg) translate(-50%,-50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="solar">
+        <div class="orb"></div>
+
+        <div class="vinus revolution">
+            <div class="orb"></div>
+        </div>
+        
+        <div class="revolution earth">
+            <div class="orb"></div>
+                <div class="revolution moon">
+                <div class="orb"></div>
+            </div>
+        </div>
+
+        <div class="mars revolution">
+            <div class="orb"></div>
+
+            <div class="pobos revolution">
+                <div class="orb"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

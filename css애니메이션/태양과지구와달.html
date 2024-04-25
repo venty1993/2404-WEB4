@@ -48,8 +48,8 @@
             background-color: gray;
             left: 50%;
             top: 50%;
-            transform: translate(-50%,calc(-50% + -200px));
-            transform-origin: 50% calc(50% + 200px);
+            transform: translate(-50%,calc(-50% + -100px));
+            transform-origin: 50% calc(50% + 100px);
 
             animation: moon-revolution 5s linear infinite;
         }
@@ -57,10 +57,10 @@
 
         @keyframes moon-revolution {
             0% {
-                transform: translate(-50%,calc(-50% + -200px)) rotate(0deg);
+                transform: translate(-50%,calc(-50% + -100px)) rotate(0deg);
             }
             100% {
-                transform: translate(-50%,calc(-50% + -200px)) rotate(360deg);
+                transform: translate(-50%,calc(-50% + -100px)) rotate(360deg);
             }
         }
 

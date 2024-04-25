@@ -8,7 +8,7 @@
     <style>
 
         :root {
-            --play-rate : 1;
+            --play-rate : 100;
         }
 
         * {
@@ -18,6 +18,7 @@
 
         body {
             background-color: #212121;
+            overflow: hidden;
         }
 
         .solar {
@@ -117,6 +118,8 @@
     </style>
 </head>
 <body>
+    <div class="test" data-number="1" data-time="500"></div>
+
     <div class="solar">
         <div class="orb"></div>
 
@@ -124,7 +127,7 @@
             <div class="orb"></div>
         </div>
         
-        <div class="revolution earth">
+        <div class="revolution earth" data-revolution="365">
             <div class="orb"></div>
                 <div class="revolution moon">
                 <div class="orb"></div>
@@ -139,5 +142,18 @@
             </div>
         </div>
     </div>
+
+    <script>
+
+        const test = document.querySelector('.test');
+        console.log(Number(test.dataset.time));
+        const playRate = 1;
+        const revolutions = document.getElementsByClassName('revolution')
+
+        // for문을 이용해 레볼루션 컨텐츠들의 animationDuration을 설정 할 수있다.
+
+        revolutions[i].style.animationDuration = `${어떠한값 여기는 연산 가능}s`
+        
+    </script>
 </body>
 </html>

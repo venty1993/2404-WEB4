@@ -51,7 +51,6 @@
         }
 
         .moon {
-            animation-duration: calc(27s / var(--play-rate));
             width: 100px;
         }
 
@@ -63,7 +62,6 @@
 
         .earth {
             width: 500px;
-            animation-duration: calc(365s/ var(--play-rate));
         }
 
         .earth > .orb {
@@ -78,7 +76,6 @@
 
         .mars {
             width: 700px;
-            animation-duration: calc(687s / var(--play-rate));
         }
 
         .mars>.orb {
@@ -88,7 +85,6 @@
 
         .vinus {
             width: 300px;
-            animation-duration: calc(288s / var(--play-rate));
         }
 
         .vinus>.orb{
@@ -98,7 +94,6 @@
 
         .pobos {
             width: 25px;
-            animation-duration: calc((1s/24*7.6)/var(--play-rate));
         }
 
         .pobos>.orb{
@@ -123,21 +118,21 @@
     <div class="solar">
         <div class="orb"></div>
 
-        <div class="vinus revolution">
+        <div class="vinus revolution" data-revolution="288">
             <div class="orb"></div>
         </div>
         
         <div class="revolution earth" data-revolution="365">
             <div class="orb"></div>
-                <div class="revolution moon">
+                <div class="revolution moon" data-revolution="27">
                 <div class="orb"></div>
             </div>
         </div>
 
-        <div class="mars revolution">
+        <div class="mars revolution" data-revolution="687">
             <div class="orb"></div>
 
-            <div class="pobos revolution">
+            <div class="pobos revolution" data-revolution="0.3166">
                 <div class="orb"></div>
             </div>
         </div>
@@ -145,6 +140,7 @@
 
     <script>
 
+        // <div class="test" data-number="1" data-time="500"></div>
         const test = document.querySelector('.test');
         console.log(Number(test.dataset.time));
         const playRate = 1;
@@ -152,7 +148,11 @@
 
         // for문을 이용해 레볼루션 컨텐츠들의 animationDuration을 설정 할 수있다.
 
-        revolutions[i].style.animationDuration = `${어떠한값 여기는 연산 가능}s`
+        // revolutions[i].style.animationDuration = `${어떠한값 여기는 연산 가능}s`
+
+        for(let i = 0 ; i < revolutions.length ; i++) {
+            revolutions[i].style.animationDuration = `${Number(revolutions[i].dataset.revolution/playRate)}s`
+        }
         
     </script>
 </body>

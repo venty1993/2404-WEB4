@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 500px;
+            height: 500px;
+            position: relative;
+            left: 100px;
+            top: 100px;
+            animation: rotate 10s linear infinite;
+            border: 1px solid pink;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+            
+        }
+
+        .container>div {
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+            position: absolute;
+            transform: translate(-50%,-50%);
+
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .top {
+            top: 0;
+            left: 50%;
+        }
+        .left {
+            left: 0;
+            top: 50%;
+        }
+        .right{
+            left: 100%;
+            top: 50%;
+        }
+        .bottom {
+            top: 100%;
+            left: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top">1</div>
+        <div class="left">2</div>
+        <div class="right">3</div>
+        <div class="bottom">4</div>
+    </div>
+</body>
+</html>

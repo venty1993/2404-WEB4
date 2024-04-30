@@ -16,7 +16,7 @@
             position: relative;
             left: 100px;
             top: 100px;
-            animation: rotate 20s linear infinite;
+            /* animation: rotate 20s linear infinite; */
             border: 1px solid pink;
 
 
@@ -24,7 +24,7 @@
             /* 자식요소 가운데정렬을 위해 */
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
         }
 
         @keyframes rotate {
@@ -53,26 +53,60 @@
 
         }
 
-        .top {
-            transform: translateY(-200px) rotate(0deg);
+        /* .top {
+            transform:  rotate(0deg);
         }
         .left {
-            transform: translateY(-200px) rotate(90deg);
+            transform:  rotate(90deg);
         }
         .right{
-            transform: translateY(-200px) rotate(180deg);
+            transform:  rotate(180deg);
         }
         .bottom {
-            transform: translateY(-200px) rotate(270deg);
-        }
+            transform:  rotate(270deg);
+        } */
+
+        /* 
+        위 컨텐츠들에 대한 각도는 어떻게 계산한걸까?
+        360도의 범위에 컨텐츠들이 동일한 간격으로 배치가 되어야 한다.
+        컨텐츠의 갯수만큼 나눈 각도를 가지고 있어야 된다.
+
+        총 컨텐츠가 4개일때
+        0번째 : 0도
+        1번째 : 90도
+        2번째 : 180도
+        3번째 : 270도
+
+        만약 총 컨텐츠가 10개라면?
+        0 : 0도
+        1 : 36도
+        2 : 72도
+        .
+        .
+        .
+        .
+        .
+        .
+        10번째 : 324도
+        
+        위와 같이 회전 각을 구해볼수 있습니다.
+
+        */
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="top">1</div>
-        <div class="left">2</div>
-        <div class="right">3</div>
-        <div class="bottom">4</div>
+        <div class="content">1</div>
+        <div class="content">2</div>
+        <div class="content">3</div>
+        <div class="content">4</div>
+        <div class="content">5</div>
+        <div class="content">6</div>
+        <div class="content">7</div>
+        <div class="content">8</div>
     </div>
+    <script>
+        // 컨텐츠의 갯수에 따라 자동으로 각도를 계산해서 넣어주는 자바스크립트를 작성해봅시다!
+    </script>
 </body>
 </html>

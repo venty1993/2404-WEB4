@@ -102,11 +102,24 @@
         <div class="content">4</div>
         <div class="content">5</div>
         <div class="content">6</div>
-        <div class="content">7</div>
-        <div class="content">8</div>
+
     </div>
     <script>
         // 컨텐츠의 갯수에 따라 자동으로 각도를 계산해서 넣어주는 자바스크립트를 작성해봅시다!
+        // const contents = document.querySelectorAll('.content')
+        const content = document.getElementsByClassName('content')
+        const count = content.length;
+        const deg = 360/count;
+
+        // 실제 들어가야되는 로테이트값 : deg * index
+
+        for(let i = 0 ; i < count;i++) {
+            content[i].style.transform = `rotate(${deg * i}deg)`
+        }
+
+
+
+
     </script>
 </body>
 </html>

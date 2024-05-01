@@ -43,6 +43,7 @@
             background-color: gray;
             position: absolute;
             /* transform: translate(-50%,-50%); */
+            top: -50px;
 
             font-size: 24px;
             font-weight: bold;
@@ -51,6 +52,14 @@
             align-items: center;
             transform-origin: 50% calc(50% + 200px);
 
+        }
+
+        .container>.content {
+            background-image: url(Tarot-card-divination-sun-pattern-creative-shape-scarey_426578_wh860.png);
+            background-position: 50% 50%;
+            background-size: 230%;
+            width: 100px;
+            height: 200px;
         }
 
         /* .top {
@@ -98,12 +107,13 @@
     <div class="container">
 
     </div>
+    <script src="getDegree.js"></script>
     <script>
         // 컨텐츠의 갯수에 따라 자동으로 각도를 계산해서 넣어주는 자바스크립트를 작성해봅시다!
         // const contents = document.querySelectorAll('.content')
         const container = document.querySelector('.container')
         const content = document.getElementsByClassName('content')
-        const count = 5;
+        const count = 10;
         const deg = 360/count;
         
         for(let i = 0 ; i < count ; i ++) {
@@ -127,32 +137,35 @@
         // 컨테이너의 회전 각도를 저장해놓는 변수
         let conDeg = 0;
         let isClicked = false
-        let posX;
-        let move;
-        
-        // 배율(마우스 감도) 설정하는 상수, 임의로 적당한 값을 설정한것이다.
-        const mag = 5;
+        let posX, posY;
+        let moveX, moveY;
+        let clickDeg;
 
         container.addEventListener('mousedown',(e)=>{
             isClicked = true;
-            posX = e.clientX;
+            posX = container.getBoundingClientRect().left + container.getBoundingClientRect().width/2;
+            posY = container.getBoundingClientRect().top + container.getBoundingClientRect().height/2;
+            clickDeg = getDegree(e.clientX - posX, e.clientY - posY)
         })
+
         document.addEventListener('mousemove', (e) =>{
             if(isClicked){
                 e.preventDefault();
-                move = e.clientX - posX;
-                container.style.transform = `rotate(${conDeg + move / mag}deg)`
+                moveX = e.clientX - posX;
+                moveY = e.clientY - posY;
+
+                container.style.transform = `rotate(${conDeg + getDegree(moveX,moveY) - clickDeg}deg)`
             }
         })
         document.addEventListener('mouseup',()=>{
             if(isClicked){
                 isClicked = false
-                conDeg = conDeg + move / mag
+                conDeg = conDeg + getDegree(moveX,moveY) - clickDeg
             }
         })
 
         document.addEventListener('keydown',()=>{
-            console.log(conDeg, conDeg + move / mag);
+            // console.log(conDeg, conDeg + move / mag);
         })
 
         // 드래그 이벤트를 만들것.
